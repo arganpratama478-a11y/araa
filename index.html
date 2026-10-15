@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Araa</title>
+<style>
+  /* WARNA UTAMA WEB */
+  :root {
+    --pink: #ff7aa2;
+    --bg: #fff8fa;
+    --text: #333;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+    overflow-x: hidden;
+  }
+  /* BAGIAN ATAS */
+  .hero {
+    padding: 60px 20px 30px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    margin: 0;
+    color: var(--pink);
+  }
+  .hero p {
+    font-size: 18px;
+    color: #777;
+  }
+  /* KARTU SURAT */
+  .card {
+    background: white;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    line-height: 1.7;
+  }
+  /* TOMBOL */
+  button {
+    background: var(--pink);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  button:hover {
+    opacity: 0.9;
+  }
+  #pesan {
+    display: none;
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--pink);
+    font-size: 20px;
+  }
+  /* HATI YANG JATUH */
+  .hati {
+    position: fixed;
+    top: -20px;
+    font-size: 24px;
+    animation: jatuh 3s linear forwards;
+    pointer-events: none;
+  }
+  @keyframes jatuh {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+  .footer {
+    margin: 40px 0;
+    color: #aaa;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <p>Halo,</p>
+    <h1>For Araa ♡</h1>
+    <p>Dari Kei</p>
+  </div>
+
+  <div class="card">
+    <p>
+      Makasih ya udah gambarin aku.<br>
+      Gambarnya bagus banget, sumpah.<br><br>
+      Aku gak jago ngomong kayak kamu yang jago gambar,<br>
+      jadi aku bikinin ini aja buat kamu.
+    </p>
+
+    <button onclick="tampilPesan()">Klik ini ya</button>
+    <div id="pesan">I ♥ U too, Araa</div>
+  </div>
+
+  <div class="footer">
+    Dibuat dengan niat - Kei
+  </div>
+
+<script>
+  // FUNGSI: Saat tombol diklik, tampilkan pesan dan hujan hati
+  function tampilPesan() {
+    document.getElementById('pesan').style.display = 'block';
+
+    // Buat 20 hati yang jatuh
+    for (let i = 0; i < 20; i++) {
+      let span = document.createElement('span');
+      span.className = 'hati';
+      span.innerHTML = '♥';
+      // Posisi acak dari kiri
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.color = '#ff7aa2';
+      document.body.appendChild(span);
+
+      // Hapus hati setelah 3 detik agar tidak menumpuk
+      setTimeout(() => span.remove(), 3000);
+    }
+  }
+</script>
+</body>
+</html>
